@@ -71,6 +71,7 @@ func (m ipamMigrator) Initialise() error {
 // Create and initialise default Calico IPPool if not exists.
 // Update default FelixConfiguration with Flannel VNI and vxlan port.
 func (m ipamMigrator) InitialiseIPPoolAndFelixConfig() error {
+	// TODO 需要完整查验flannel对接IPv6的具体形式，修改config结构体实现
 	// Validate config and get pod CIDR.
 	_, cidr, err := cnet.ParseCIDR(m.config.FlannelNetwork)
 	if err != nil {

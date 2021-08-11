@@ -164,13 +164,14 @@ func (c *Config) ReadFlannelConfig(data string) error {
 	}
 
 	var ok bool
-	if c.FlannelNetwork, ok = config["FLANNEL_NETWORK"]; !ok {
+	// TODO 单栈支持，双斩考虑对接具体形式
+	if c.FlannelNetwork, ok = config["FLANNEL_IPV6_NETWORK"]; !ok {
 		return fmt.Errorf("Failed to get config item FLANNEL_NETWORK")
 	}
 
-	if c.FlannelIPV6Network, ok = config["FLANNEL_IPV6_NETWORK"]; !ok {
-		return fmt.Errorf("Failed to get config item FLANNEL_IPV6_NETWORK")
-	}
+	//if c.FlannelIPV6Network, ok = config["FLANNEL_IPV6_NETWORK"]; !ok {
+	//	return fmt.Errorf("Failed to get config item FLANNEL_IPV6_NETWORK")
+	//}
 	var masq string
 	if masq, ok = config["FLANNEL_IPMASQ"]; !ok {
 		return fmt.Errorf("Failed to get config item FLANNEL_IPMASQ")
