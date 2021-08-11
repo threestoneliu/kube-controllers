@@ -50,4 +50,5 @@ replace (
 	k8s.io/metrics => k8s.io/metrics v0.21.0-rc.0
 	k8s.io/mount-utils => k8s.io/mount-utils v0.21.0-rc.0
 	k8s.io/sample-apiserver => k8s.io/sample-apiserver v0.21.0-rc.0
+	github.com/projectcalico/libcalico-go => github.com/formy99/libcalico-go v1.7.2-0.20210729033717-67aa0ebe77dc
 )

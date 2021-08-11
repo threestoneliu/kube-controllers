@@ -37,6 +37,9 @@ type Config struct {
 	// This config item is auto detected from /run/flannel/subnet.env.
 	FlannelNetwork string `default:"" split_words:"true"`
 
+	FlannelIPV6Network string `default:"" split_words:"true"`
+	FlannelIPV6SubnetLen int `default:"64" split_words:"true"`
+
 	// Name of Flannel daemonset in kube-system namespace.
 	// This could be a Canal daemonset where the controller will autodetect.
 	// Default is kube-flannel-ds-amd64
@@ -165,6 +168,9 @@ func (c *Config) ReadFlannelConfig(data string) error {
 		return fmt.Errorf("Failed to get config item FLANNEL_NETWORK")
 	}
 
+	if c.FlannelIPV6Network, ok = config["FLANNEL_IPV6_NETWORK"]; !ok {
+		return fmt.Errorf("Failed to get config item FLANNEL_IPV6_NETWORK")
+	}
 	var masq string
 	if masq, ok = config["FLANNEL_IPMASQ"]; !ok {
 		return fmt.Errorf("Failed to get config item FLANNEL_IPMASQ")

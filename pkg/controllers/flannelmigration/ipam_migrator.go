@@ -244,7 +244,7 @@ func setupCalicoNodeVxlan(ctx context.Context, c client.Interface, nodeName stri
 	}
 
 	// If node has correct vxlan setup, do nothing.
-	if node.Spec.IPv4VXLANTunnelAddr == vtepIP.String() && node.Spec.VXLANTunnelMACAddr == mac &&
+	if node.Spec.IPv6VXLANTunnelAddr == vtepIP.String() && node.Spec.VXLANTunnelMACAddr == mac &&
 		(node.Spec.BGP != nil && node.Spec.BGP.IPv4Address == publicIP) {
 		return nil
 	}
@@ -255,7 +255,7 @@ func setupCalicoNodeVxlan(ctx context.Context, c client.Interface, nodeName stri
 	// Set public ip with subnet /32.
 	// The subnet part is required to pass Felix validation.
 	node.Spec.BGP.IPv4Address = fmt.Sprintf("%s/32", publicIP)
-	node.Spec.IPv4VXLANTunnelAddr = vtepIP.String()
+	node.Spec.IPv6VXLANTunnelAddr = vtepIP.String()
 	node.Spec.VXLANTunnelMACAddr = mac
 	_, err = c.Nodes().Update(ctx, node, options.SetOptions{})
 	if err != nil {

@@ -230,8 +230,8 @@ func (c *NodeController) getAutoHostendpointExpectedIPs(node *api.Node) []string
 			expectedIPs = append(expectedIPs, node.Spec.BGP.IPv4IPIPTunnelAddr)
 		}
 	}
-	if node.Spec.IPv4VXLANTunnelAddr != "" {
-		expectedIPs = append(expectedIPs, node.Spec.IPv4VXLANTunnelAddr)
+	if node.Spec.IPv6VXLANTunnelAddr != "" {
+		expectedIPs = append(expectedIPs, node.Spec.IPv6VXLANTunnelAddr)
 	}
 	if node.Spec.Wireguard != nil && node.Spec.Wireguard.InterfaceIPv4Address != "" {
 		expectedIPs = append(expectedIPs, node.Spec.Wireguard.InterfaceIPv4Address)
