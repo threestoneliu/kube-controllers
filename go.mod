@@ -25,6 +25,7 @@ require (
 )
 
 replace (
+	github.com/projectcalico/libcalico-go => github.com/formy99/libcalico-go v1.7.2-0.20211020031509-eaff8f6fbb3c
 	github.com/sirupsen/logrus => github.com/projectcalico/logrus v1.0.4-calico
 	k8s.io/api => k8s.io/api v0.21.0-rc.0
 	k8s.io/apiextensions-apiserver => k8s.io/apiextensions-apiserver v0.21.0-rc.0
@@ -50,5 +51,4 @@ replace (
 	k8s.io/metrics => k8s.io/metrics v0.21.0-rc.0
 	k8s.io/mount-utils => k8s.io/mount-utils v0.21.0-rc.0
 	k8s.io/sample-apiserver => k8s.io/sample-apiserver v0.21.0-rc.0
-	github.com/projectcalico/libcalico-go => github.com/formy99/libcalico-go v1.7.2-0.20210729033717-67aa0ebe77dc
 )
